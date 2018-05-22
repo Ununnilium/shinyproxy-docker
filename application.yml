@@ -1,0 +1,29 @@
+shiny:
+  proxy:
+    title: Shiny Proxy in Docker Container
+    landing-page: /
+    heartbeat-rate: 10000
+    heartbeat-timeout: 60000
+    port: 8080
+    authentication: none
+
+    docker:
+      cert-path: /home/none
+      url: http://localhost:2375  # created by socat because Unix domain socket don't work at the moment
+      internal-networking: true
+  apps:
+  - name: 01_hello
+    display-name: Hello Application
+    description: Application which demonstrates the basics of a Shiny app
+    docker-cmd: ["R", "-e", "shinyproxy::run_01_hello()"]
+    docker-image: openanalytics/shinyproxy-demo
+  - name: 06_tabsets
+    docker-cmd: ["R", "-e", "shinyproxy::run_06_tabsets()"]
+    docker-image: openanalytics/shinyproxy-demo
+
+logging:
+  file:
+    shinyproxy.log
+
+server:
+    contextPath: /shinyproxy
