@@ -1,7 +1,7 @@
 # Shiny Proxy in a Docker Container #
 
 This repository contains the code and configuration to run [Shiny Proxy](https://github.com/openanalytics/shinyproxy)
-(more info at [shinyproxy.io](https://www.shinyproxy.io)) in side a Docker container.
+(more info at [shinyproxy.io](https://www.shinyproxy.io)) inside a Docker container.
 
 ## Usage ##
 1. Configuration Shiny Proxy in `application.yml` and the configuration block in `shiny_start.py`
